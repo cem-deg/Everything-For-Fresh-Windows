@@ -1,68 +1,105 @@
+import { useState } from "react";
 import { NavLink } from "react-router";
-import Logo from "./Logo";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Navbar() {
-    return (
-        <nav className="navbar navbar-expand-lg" data-bs-theme="dark">
-            <div className="container">
-        <NavLink className="navbar-brand d-flex align-items-center gap-2" to="/">
-            <Logo style={{ width: '32px', height: '32px', filter: 'drop-shadow(0 0 8px rgba(251, 191, 36, 0.5))' }} />
-            <span>EFFW</span>
-        </NavLink>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav me-auto">
-            <li className="nav-item">
-              <NavLink 
-                className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} 
-                to="/" 
-                end
-              >
-                Home
-              </NavLink>
-            </li>
-          </ul>
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <NavLink 
-                className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} 
-                to="/shortcut-bios"
-              >
-                BIOS Update
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink 
-                className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} 
-                to="/shortcut-boot"
-              >
-                CPU Core
-              </NavLink>
-            </li>
-            <li className="nav-item d-flex align-items-center">
-              <NavLink 
-                className="btn btn-outline-danger ms-2 px-3 py-1 d-flex align-items-center gap-1"
-                to="/app-center"
-                style={{ fontSize: '0.9rem' }}
-              >
-                <i className="bi bi-grid-fill"></i>
-                Apps
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-      </div>
+    const [mobileOpen, setMobileOpen] = useState(false);
+    const { isDark, toggleTheme } = useTheme();
 
-        </nav>
-    )
+    return (
+        <header className="navbar-custom">
+            <div className="navbar-inner">
+                {/* Left Nav */}
+                <nav className="navbar-left">
+                    <NavLink
+                        className={({ isActive }) =>
+                            isActive ? "nav-link-custom active" : "nav-link-custom"
+                        }
+                        to="/shortcut-bios"
+                    >
+                        BIOS Update
+                    </NavLink>
+                    <NavLink
+                        className={({ isActive }) =>
+                            isActive ? "nav-link-custom active" : "nav-link-custom"
+                        }
+                        to="/shortcut-boot"
+                    >
+                        CPU Core
+                    </NavLink>
+                </nav>
+
+                {/* Center Logo */}
+                <NavLink to="/" className="navbar-center" style={{ textDecoration: 'none' }}>
+                    <span className="material-symbols-outlined brand-bolt">bolt</span>
+                    <span className="brand-logo">EFFW</span>
+                </NavLink>
+
+                {/* Right: Theme Toggle + Apps CTA */}
+                <div className="navbar-right">
+                    <button
+                        className="theme-toggle"
+                        onClick={toggleTheme}
+                        aria-label="Toggle theme"
+                        title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                    >
+                        <i className={`bi ${isDark ? "bi-sun-fill" : "bi-moon-stars-fill"}`}></i>
+                    </button>
+                    <NavLink to="/app-center" className="btn-primary-amber">
+                        <i className="bi bi-grid-fill"></i>
+                        Apps
+                    </NavLink>
+                    <button
+                        className="hamburger"
+                        onClick={() => setMobileOpen(!mobileOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+
+            {/* Mobile Menu */}
+            <div className={`mobile-menu ${mobileOpen ? "open" : ""}`}>
+                <NavLink
+                    className={({ isActive }) =>
+                        isActive ? "nav-link-custom active" : "nav-link-custom"
+                    }
+                    to="/" end onClick={() => setMobileOpen(false)}
+                >
+                    Home
+                </NavLink>
+                <NavLink
+                    className={({ isActive }) =>
+                        isActive ? "nav-link-custom active" : "nav-link-custom"
+                    }
+                    to="/shortcut-bios" onClick={() => setMobileOpen(false)}
+                >
+                    BIOS Update
+                </NavLink>
+                <NavLink
+                    className={({ isActive }) =>
+                        isActive ? "nav-link-custom active" : "nav-link-custom"
+                    }
+                    to="/shortcut-boot" onClick={() => setMobileOpen(false)}
+                >
+                    CPU Core
+                </NavLink>
+                <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+                    <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+                        <i className={`bi ${isDark ? "bi-sun-fill" : "bi-moon-stars-fill"}`}></i>
+                    </button>
+                    <NavLink
+                        to="/app-center"
+                        className="btn-primary-amber"
+                        onClick={() => setMobileOpen(false)}
+                    >
+                        Apps
+                    </NavLink>
+                </div>
+            </div>
+        </header>
+    );
 }

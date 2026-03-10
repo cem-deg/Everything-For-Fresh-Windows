@@ -1,93 +1,177 @@
 import { Link } from "react-router";
-import Logo from "./Logo";
+
+const logos = [
+    { el: <i className="bi bi-windows" style={{ fontSize: '1.8rem' }}></i>, alt: 'Windows' },
+    { el: <img src="https://cdn.simpleicons.org/nvidia/ffffff" alt="Nvidia" style={{ height: '26px', width: 'auto' }} />, alt: 'Nvidia' },
+    { el: <img src="https://cdn.simpleicons.org/intel/ffffff" alt="Intel" style={{ height: '30px', width: 'auto' }} />, alt: 'Intel' },
+    { el: <img src="https://cdn.simpleicons.org/amd/ffffff" alt="AMD" style={{ height: '52px', width: 'auto' }} />, alt: 'AMD' },
+    { el: <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Micro-Star_International_logo2020.svg" alt="MSI" style={{ height: '15px', width: 'auto' }} />, alt: 'MSI' },
+    { el: <img src="https://cdn.simpleicons.org/asus/ffffff" alt="ASUS" style={{ height: '48px', width: 'auto' }} />, alt: 'ASUS' },
+    { el: <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Gigabyte_Technology_logo_20080107.svg" alt="Gigabyte" style={{ height: '13px', width: 'auto' }} />, alt: 'Gigabyte' },
+];
 
 export default function Main() {
     return (
-        <main className="hero-section text-center py-5">
-            <div className="container">
-                <div className="d-flex align-items-center justify-content-center gap-3 mb-3">
-                    <Logo style={{ width: '80px', height: '80px', filter: 'drop-shadow(0 0 12px rgba(251, 191, 36, 0.6))' }} />
-                    <h1 className="display-4 fw-bold mb-0">Everything for Fresh Windows</h1>
-                </div>
-                <p className="lead text-secondary mb-4">Your guide to optimizing Windows for peak performance</p>
-                
-                <p className="mb-4" style={{ maxWidth: '600px', margin: '0 auto' }}>
-                    Your ultimate resource for optimizing and maintaining a fresh Windows installation.
-                </p>
-                <div className="logo-slider my-5">
-                    <div className="slider-track">
-                        {/* Define common style for consistency */}
-                        {/* First Set */}
-                        <div className="slide"><i className="bi bi-windows" style={{ fontSize: '1.8rem', color: '#000000' }}></i></div>
-                        <div className="slide"><img src="https://cdn.simpleicons.org/nvidia/000000" alt="Nvidia" style={{ height: '30px', width: 'auto' }} /></div>
-                        <div className="slide"><img src="https://cdn.simpleicons.org/intel/000000" alt="Intel" style={{ height: '35px', width: 'auto' }} /></div>
-                        <div className="slide"><img src="https://cdn.simpleicons.org/amd/000000" alt="AMD" style={{ height: '65px', width: 'auto' }} /></div>
-                        <div className="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Micro-Star_International_logo2020.svg" alt="MSI" style={{ height: '17px', width: 'auto', filter: 'brightness(0)' }} /></div>
-                        <div className="slide"><img src="https://cdn.simpleicons.org/asus/000000" alt="ASUS" style={{ height: '60px', width: 'auto' }} /></div>
-                        <div className="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Gigabyte_Technology_logo_20080107.svg" alt="Gigabyte" style={{ height: '16px', width: 'auto', filter: 'brightness(0)' }} /></div>
-                        
-                        {/* Duplicate for seamless loop */}
-                        <div className="slide"><i className="bi bi-windows" style={{ fontSize: '1.8rem', color: '#000000' }}></i></div>
-                        <div className="slide"><img src="https://cdn.simpleicons.org/nvidia/000000" alt="Nvidia" style={{ height: '30px', width: 'auto' }} /></div>
-                        <div className="slide"><img src="https://cdn.simpleicons.org/intel/000000" alt="Intel" style={{ height: '35px', width: 'auto' }} /></div>
-                        <div className="slide"><img src="https://cdn.simpleicons.org/amd/000000" alt="AMD" style={{ height: '65px', width: 'auto' }} /></div>
-                        <div className="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Micro-Star_International_logo2020.svg" alt="MSI" style={{ height: '17px', width: 'auto', filter: 'brightness(0)' }} /></div>
-                        <div className="slide"><img src="https://cdn.simpleicons.org/asus/000000" alt="ASUS" style={{ height: '60px', width: 'auto' }} /></div>
-                        <div className="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Gigabyte_Technology_logo_20080107.svg" alt="Gigabyte" style={{ height: '16px', width: 'auto', filter: 'brightness(0)' }} /></div>
+        <main style={{ background: 'var(--bg)' }}>
 
-                        {/* Third Set */}
-                        <div className="slide"><i className="bi bi-windows" style={{ fontSize: '1.8rem', color: '#000000' }}></i></div>
-                        <div className="slide"><img src="https://cdn.simpleicons.org/nvidia/000000" alt="Nvidia" style={{ height: '30px', width: 'auto' }} /></div>
-                        <div className="slide"><img src="https://cdn.simpleicons.org/intel/000000" alt="Intel" style={{ height: '35px', width: 'auto' }} /></div>
-                        <div className="slide"><img src="https://cdn.simpleicons.org/amd/000000" alt="AMD" style={{ height: '65px', width: 'auto' }} /></div>
-                        <div className="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Micro-Star_International_logo2020.svg" alt="MSI" style={{ height: '17px', width: 'auto', filter: 'brightness(0)' }} /></div>
-                        <div className="slide"><img src="https://cdn.simpleicons.org/asus/000000" alt="ASUS" style={{ height: '60px', width: 'auto' }} /></div>
-                        <div className="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Gigabyte_Technology_logo_20080107.svg" alt="Gigabyte" style={{ height: '16px', width: 'auto', filter: 'brightness(0)' }} /></div>
-                    </div>
-                </div>
+            {/* ===== HERO SECTION ===== */}
+            <section className="hero-section">
+                <div className="hero-glow-1"></div>
+                <div className="hero-glow-2"></div>
+                <div className="container">
+                    <div className="hero-grid">
 
-                <div className="performance">
-                    <h2 className="h4 fw-bold mb-3">Optimize Your System</h2>
-                    <p className="text-secondary mb-4">
-                        We Guaranteed This Will Make Your Windows Faster!
-                    </p>
-                </div>
-                <div className="disclaimer mb-4">
-                    <h6><i className="bi bi-speedometer2"></i> These Improvements are for <span>Gaming Performances.</span></h6>
-                </div>
-                
-                <Link to="/fundamentals" className="btn btn-outline-danger btn-lg px-5 py-3">
-                    <i className="bi bi-rocket-takeoff me-2"></i>
-                    Get Started
-                </Link>
-                
-                <div className="row mt-5">
-                    <div className="col-md-4">
-                        <div className="info-card p-4">
-                            <p className="h5"><span className="safe-text"><i className="bi bi-shield-check me-2"></i>Is it safe?</span></p>
-                            <p className="text-secondary">
-                                Yes, our optimization tips are safe because you won't download anything from our site. We only guide you to what you need to do!
+                        {/* Left Content */}
+                        <div className="hero-left">
+                            <div className="hero-badge">
+                                <span className="hero-badge-dot"></span>
+                                <span className="hero-badge-text">v2.4 Live Now</span>
+                            </div>
+                            <h1 className="hero-title">
+                                Unlock <span className="hero-title-accent">Peak</span> Performance
+                            </h1>
+                            <p className="hero-subtitle">
+                                Your ultimate step-by-step guide to a fully optimized Windows system — faster speeds, lower latency, rock-solid stability.
                             </p>
+                            <div className="hero-buttons">
+                                <Link to="/fundamentals" className="btn-hero-primary">
+                                    <i className="bi bi-rocket-takeoff"></i>
+                                    Get Started
+                                </Link>
+                                <Link to="/app-center" className="btn-hero-secondary">
+                                    <i className="bi bi-grid-fill"></i>
+                                    View Apps
+                                </Link>
+                            </div>
+                        </div>
+
+                        {/* Right Image Card */}
+                        <div className="hero-right">
+                            <div className="hero-image-card">
+                                <img
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1VjSMUyOZCIr2DFdeRVUudvkEa5Z5IA-Z5nu9CLNA1nGRhT0C6C4BTeQ8bVxg-mhESct1s1TPkUjeIS-DaT-hYfcLeV-am4_1Rb3TuSg01Qs6CczV7Bl0B-Q3LxaFgqOeQOc7xdqXAxwk9BdiUVPgT2RKTAImonCKstC5JJgdVk5CvmtQburB9yHiz2QFh0ANmXd1moi5eMb0VfwxDA27owMsdyszi1kxyGsYSJTM1Oe8iBqzrdw-8l3fA2Zk77BmBgew_ohPgSkz"
+                                    alt="High-performance gaming PC setup with amber lighting"
+                                />
+                                <div className="hero-image-overlay"></div>
+                            </div>
+                            <div className="hero-stat-card">
+                                <p className="hero-stat-label">Current FPS Boost</p>
+                                <div className="hero-stat-value">
+                                    <span>+42%</span>
+                                    <i className="bi bi-graph-up-arrow" style={{ color: '#22c55e', fontSize: '1.3rem', marginBottom: '0.3rem' }}></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
-                        <div className="info-card p-4">
-                            <p className="h5"><i className="bi bi-question-circle me-2"></i>Why is it free?</p>
-                            <p className="text-secondary">
-                                Our mission is to help users get the best performance out of their Desktop. We believe everyone deserves fast and efficient systems without any cost.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="info-card p-4">
-                            <p className="h5"><span className="work-text"><i className="bi bi-lightning-charge me-2"></i>How does it work?</span></p>
-                            <p className="text-secondary">
-                                Our guides are step-by-step so you can start with fundamentals and progress to advanced optimizations at your own pace.
-                            </p>
+
+                    {/* Logo Slider */}
+                    <div className="logo-slider-wrapper">
+                        <p className="logo-slider-label">Compatible with leading hardware brands</p>
+                        <div className="logo-slider">
+                            <div className="slider-track">
+                                {[...logos, ...logos].map((logo, i) => (
+                                    <div className="slide" key={i}>{logo.el}</div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            {/* ===== FEATURES SECTION ===== */}
+            <section className="features-section">
+                <div className="section-container">
+                    <div className="section-header">
+                        <h2 className="section-title">Everything You Need to Know</h2>
+                        <div className="section-divider"></div>
+                    </div>
+                    <div className="features-grid">
+                        <div className="feature-card">
+                            <div className="feature-icon-wrap">
+                                <i className="bi bi-shield-check"></i>
+                            </div>
+                            <h3 className="feature-title">Is it safe?</h3>
+                            <p className="feature-desc">
+                                Absolutely. You won't download anything from our site — we simply guide you through what needs to be done, step by step.
+                            </p>
+                            <span className="feature-tag">100% Safe</span>
+                        </div>
+                        <div className="feature-card">
+                            <div className="feature-icon-wrap">
+                                <i className="bi bi-question-circle"></i>
+                            </div>
+                            <h3 className="feature-title">Why is it free?</h3>
+                            <p className="feature-desc">
+                                Everyone deserves a fast and efficient system. Our mission is to make high-performance Windows accessible to all — at no cost.
+                            </p>
+                            <span className="feature-tag">Free Forever</span>
+                        </div>
+                        <div className="feature-card">
+                            <div className="feature-icon-wrap">
+                                <i className="bi bi-lightning-charge"></i>
+                            </div>
+                            <h3 className="feature-title">How does it work?</h3>
+                            <p className="feature-desc">
+                                Our guides are structured step-by-step so you can start with the fundamentals and progress to advanced optimizations at your own pace.
+                            </p>
+                            <span className="feature-tag">Step-by-Step</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ===== STATS SECTION ===== */}
+            <section className="stats-section">
+                <div className="section-container">
+                    <div className="stats-grid">
+                        <div className="stat-card">
+                            <p className="stat-label">FPS Boost</p>
+                            <p className="stat-value">+40%</p>
+                            <p className="stat-note" style={{ color: '#22c55e' }}>Verified Peak</p>
+                        </div>
+                        <div className="stat-card">
+                            <p className="stat-label">System Latency</p>
+                            <p className="stat-value">-15ms</p>
+                            <p className="stat-note" style={{ color: 'var(--primary)' }}>Average Delta</p>
+                        </div>
+                        <div className="stat-card">
+                            <p className="stat-label">System Stability</p>
+                            <p className="stat-value">99.9%</p>
+                            <p className="stat-note" style={{ color: '#22c55e' }}>+15% vs Stock</p>
+                        </div>
+                        <div className="stat-card">
+                            <p className="stat-label">Active Users</p>
+                            <p className="stat-value">50k+</p>
+                            <p className="stat-note" style={{ color: 'var(--primary)' }}>Global Reach</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ===== CTA SECTION ===== */}
+            <section className="cta-section">
+                <div className="section-container">
+                    <div className="cta-box">
+                        <h2 className="cta-title">
+                            Ready to push your system beyond its limits?
+                        </h2>
+                        <p className="cta-subtitle">
+                            Join thousands of gamers and professionals using EFFW to squeeze every bit of power from their rigs.
+                        </p>
+                        <div className="cta-buttons">
+                            <Link to="/fundamentals" className="btn-cta-dark">
+                                <i className="bi bi-rocket-takeoff"></i>
+                                Start Optimizing
+                            </Link>
+                            <Link to="/app-center" className="btn-cta-outline">
+                                <i className="bi bi-grid-fill"></i>
+                                App Center
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </main>
-    )
+    );
 }

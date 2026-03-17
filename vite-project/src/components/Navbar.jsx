@@ -9,31 +9,31 @@ export default function Navbar() {
     return (
         <header className="navbar-custom">
             <div className="navbar-inner">
-                {/* Left Nav */}
-                <nav className="navbar-left">
-                    <NavLink
-                        className={({ isActive }) =>
-                            isActive ? "nav-link-custom active" : "nav-link-custom"
-                        }
-                        to="/shortcut-bios"
-                    >
-                        BIOS Update
+                {/* Left: Logo + Nav Links */}
+                <div className="navbar-left">
+                    <NavLink to="/" className="navbar-brand" style={{ textDecoration: 'none' }}>
+                        <span className="material-symbols-outlined brand-bolt">bolt</span>
+                        <span className="brand-logo">EFFW</span>
                     </NavLink>
-                    <NavLink
-                        className={({ isActive }) =>
-                            isActive ? "nav-link-custom active" : "nav-link-custom"
-                        }
-                        to="/shortcut-boot"
-                    >
-                        CPU Core
-                    </NavLink>
-                </nav>
-
-                {/* Center Logo */}
-                <NavLink to="/" className="navbar-center" style={{ textDecoration: 'none' }}>
-                    <span className="material-symbols-outlined brand-bolt">bolt</span>
-                    <span className="brand-logo">EFFW</span>
-                </NavLink>
+                    <nav className="navbar-links">
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive ? "nav-link-custom active" : "nav-link-custom"
+                            }
+                            to="/shortcut-bios"
+                        >
+                            BIOS Update
+                        </NavLink>
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive ? "nav-link-custom active" : "nav-link-custom"
+                            }
+                            to="/shortcut-boot"
+                        >
+                            CPU Core
+                        </NavLink>
+                    </nav>
+                </div>
 
                 {/* Right: Theme Toggle + Apps CTA */}
                 <div className="navbar-right">

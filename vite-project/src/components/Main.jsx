@@ -25,7 +25,7 @@ export default function Main() {
                         <div className="hero-left">
                             <div className="hero-badge">
                                 <span className="hero-badge-dot"></span>
-                                <span className="hero-badge-text">v2.4 Live Now</span>
+                                <span className="hero-badge-text">v1.0 Live Now</span>
                             </div>
                             <h1 className="hero-title">
                                 Unlock <span className="hero-title-accent">Peak</span> Performance
@@ -55,10 +55,10 @@ export default function Main() {
                                 <div className="hero-image-overlay"></div>
                             </div>
                             <div className="hero-stat-card">
-                                <p className="hero-stat-label">Current FPS Boost</p>
+                                <p className="hero-stat-label">FPS Boost</p>
                                 <div className="hero-stat-value">
-                                    <span>+42%</span>
-                                    <i className="bi bi-graph-up-arrow" style={{ color: '#22c55e', fontSize: '1.3rem', marginBottom: '0.3rem' }}></i>
+                                    <span>+40%</span>
+                                    <i className="bi bi-graph-up-arrow" style={{ color: '#22c55e', fontSize: '1.2rem', marginBottom: '0.3rem' }}></i>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@ export default function Main() {
             <section className="features-section">
                 <div className="section-container">
                     <div className="section-header">
-                        <h2 className="section-title">Everything You Need to Know</h2>
+                        <h2 className="section-title section-title-sm">Everything You Need to Know</h2>
                         <div className="section-divider"></div>
                     </div>
                     <div className="features-grid">
@@ -90,59 +90,69 @@ export default function Main() {
                             <div className="feature-icon-wrap">
                                 <i className="bi bi-shield-check"></i>
                             </div>
-                            <h3 className="feature-title">Is it safe?</h3>
-                            <p className="feature-desc">
-                                Absolutely. You won't download anything from our site — we simply guide you through what needs to be done, step by step.
-                            </p>
-                            <span className="feature-tag">100% Safe</span>
+                            <div className="feature-card-body">
+                                <h3 className="feature-title">Is it safe?</h3>
+                                <p className="feature-desc">
+                                    Absolutely. You won't download anything from our site — we simply guide you through what needs to be done, step by step.
+                                </p>
+                                <span className="feature-tag">100% Safe</span>
+                            </div>
                         </div>
                         <div className="feature-card">
                             <div className="feature-icon-wrap">
                                 <i className="bi bi-question-circle"></i>
                             </div>
-                            <h3 className="feature-title">Why is it free?</h3>
-                            <p className="feature-desc">
-                                Everyone deserves a fast and efficient system. Our mission is to make high-performance Windows accessible to all — at no cost.
-                            </p>
-                            <span className="feature-tag">Free Forever</span>
+                            <div className="feature-card-body">
+                                <h3 className="feature-title">Why is it free?</h3>
+                                <p className="feature-desc">
+                                    Everyone deserves a fast and efficient system. Our mission is to make high-performance Windows accessible to all — at no cost.
+                                </p>
+                                <span className="feature-tag">Free Forever</span>
+                            </div>
                         </div>
                         <div className="feature-card">
                             <div className="feature-icon-wrap">
                                 <i className="bi bi-lightning-charge"></i>
                             </div>
-                            <h3 className="feature-title">How does it work?</h3>
-                            <p className="feature-desc">
-                                Our guides are structured step-by-step so you can start with the fundamentals and progress to advanced optimizations at your own pace.
-                            </p>
-                            <span className="feature-tag">Step-by-Step</span>
+                            <div className="feature-card-body">
+                                <h3 className="feature-title">How does it work?</h3>
+                                <p className="feature-desc">
+                                    Our guides are structured step-by-step so you can start with the fundamentals and progress to advanced optimizations at your own pace.
+                                </p>
+                                <span className="feature-tag">Step-by-Step</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* ===== STATS SECTION ===== */}
+            {/* ===== WHAT YOU'LL OPTIMIZE SECTION ===== */}
             <section className="stats-section">
                 <div className="section-container">
+                    <div className="section-header" style={{ marginBottom: '2.5rem' }}>
+                        <h2 className="section-title section-title-sm">What You'll Optimize</h2>
+                        <div className="section-divider"></div>
+                    </div>
                     <div className="stats-grid">
                         <div className="stat-card">
-                            <p className="stat-label">FPS Boost</p>
-                            <p className="stat-value">+40%</p>
-                            <p className="stat-note" style={{ color: '#22c55e' }}>Verified Peak</p>
+                            <div className="stat-icon"><i className="bi bi-cpu"></i></div>
+                            <p className="stat-label">BIOS & Firmware</p>
+                            <p className="stat-desc">Update your BIOS for better hardware compatibility and the latest stability fixes.</p>
                         </div>
                         <div className="stat-card">
-                            <p className="stat-label">System Latency</p>
-                            <p className="stat-value">-15ms</p>
-                            <p className="stat-note" style={{ color: 'var(--primary)' }}>Average Delta</p>
+                            <div className="stat-icon"><i className="bi bi-memory"></i></div>
+                            <p className="stat-label">Memory & XMP</p>
+                            <p className="stat-desc">Enable XMP/EXPO profiles and fine-tune RAM timings for maximum throughput.</p>
                         </div>
                         <div className="stat-card">
-                            <p className="stat-label">System Stability</p>
-                            <p className="stat-value">99.9%</p>
-                            <p className="stat-note" style={{ color: '#22c55e' }}>+15% vs Stock</p>
+                            <div className="stat-icon"><i className="bi bi-gpu-card"></i></div>
+                            <p className="stat-label">GPU Drivers</p>
+                            <p className="stat-desc">Install clean, up-to-date GPU drivers and configure optimal display settings.</p>
                         </div>
                         <div className="stat-card">
-                            <p className="stat-label">Active Users</p>
-                            <p className="stat-value">50k+</p>
-                            <p className="stat-note" style={{ color: 'var(--primary)' }}>Global Reach</p>
+                            <div className="stat-icon"><i className="bi bi-windows"></i></div>
+                            <p className="stat-label">Windows Settings</p>
+                            <p className="stat-desc">Tweak power plans, services, and privacy settings for a leaner, faster OS.</p>
                         </div>
                     </div>
                 </div>

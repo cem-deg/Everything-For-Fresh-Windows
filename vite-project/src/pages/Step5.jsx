@@ -8,10 +8,12 @@ export default function Step5() {
     const { selectedCPU, selectedGPU } = location.state || {}; 
 
     const handleBack = () => {
+        window.scrollTo(0, 0);
         navigate('/step4', { state: { selectedCPU, selectedGPU } });
     };
 
     const handleNext = () => {
+        window.scrollTo(0, 0);
         navigate('/step6', { state: { selectedCPU, selectedGPU } });
     };
 
@@ -21,6 +23,9 @@ export default function Step5() {
                 <div className="step-page">
                     <div className="step-header">
                         <div className="step-badge">Step 5 of 8</div>
+                        <div className="step-progress-bar">
+                            <div className="step-progress-fill" style={{ width: '62.5%' }}></div>
+                        </div>
                         <h3 className="step-title">
                             <i className="bi bi-lightning-charge"></i>
                             Game Mode & Power Plan

@@ -8,6 +8,7 @@ export default function Step4() {
     const { selectedCPU, selectedGPU } = location.state || {}; 
 
     const handleBack = () => {
+        window.scrollTo(0, 0);
         if (selectedGPU === 'nvidia') {
             navigate('/step3-nvidia', { state: { selectedCPU, selectedGPU } });
         } else {
@@ -16,6 +17,7 @@ export default function Step4() {
     };
 
     const handleNext = () => {
+        window.scrollTo(0, 0);
         navigate('/step5', { state: { selectedCPU, selectedGPU } });
     };
 
@@ -25,6 +27,9 @@ export default function Step4() {
                 <div className="step-page">
                     <div className="step-header">
                         <div className="step-badge">Step 4 of 8</div>
+                        <div className="step-progress-bar">
+                            <div className="step-progress-fill" style={{ width: '50%' }}></div>
+                        </div>
                         <h3 className="step-title">
                             <i className="bi bi-windows"></i>
                             Windows Updates

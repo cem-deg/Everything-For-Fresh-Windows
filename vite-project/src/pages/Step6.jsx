@@ -8,10 +8,12 @@ export default function Step6() {
     const { selectedCPU, selectedGPU } = location.state || {}; 
 
     const handleBack = () => {
+        window.scrollTo(0, 0);
         navigate('/step5', { state: { selectedCPU, selectedGPU } });
     };
 
     const handleNext = () => {
+        window.scrollTo(0, 0);
         navigate('/step7', { state: { selectedCPU, selectedGPU } });
     };
 
@@ -21,6 +23,9 @@ export default function Step6() {
                 <div className="step-page">
                     <div className="step-header">
                         <div className="step-badge">Step 6 of 8</div>
+                        <div className="step-progress-bar">
+                            <div className="step-progress-fill" style={{ width: '75%' }}></div>
+                        </div>
                         <h3 className="step-title">
                             <i className="bi bi-rocket-takeoff"></i>
                             Startup & Background Apps

@@ -8,10 +8,12 @@ export default function Step2AMD() {
     const { selectedCPU, selectedGPU } = location.state || {}; 
 
     const handleBack = () => {
+        window.scrollTo(0, 0);
         navigate('/step1', { state: { selectedCPU, selectedGPU } });
     };
 
     const handleNext = () => {
+        window.scrollTo(0, 0);
         if (selectedGPU === 'nvidia') {
             navigate('/step3-nvidia', { state: { selectedCPU, selectedGPU } });
         } else {
@@ -25,6 +27,9 @@ export default function Step2AMD() {
                 <div className="step-page">
                     <div className="step-header">
                         <div className="step-badge">Step 2 of 8</div>
+                        <div className="step-progress-bar">
+                            <div className="step-progress-fill" style={{ width: '25%' }}></div>
+                        </div>
                         <h3 className="step-title">
                             <i className="bi bi-cpu"></i>
                             AMD Chipset Drivers

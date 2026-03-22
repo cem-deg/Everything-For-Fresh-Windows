@@ -925,90 +925,38 @@
 .footer {
   background-color: var(--footer-bg) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 4rem 0 0;
   color: #f1f5f9 !important;
 }
 
-/* Top section */
-.footer-top {
+.footer-compact {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.1rem 2rem;
   display: flex;
-  gap: 5rem;
-  padding-bottom: 3.5rem;
-  align-items: flex-start;
-}
-
-.footer-top-brand {
-  flex: 0 0 260px;
-}
-
-.footer-top-links {
-  flex: 1;
-  display: flex;
-  gap: 3rem;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .footer-brand-name {
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.04em;
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-bottom: 0.85rem;
+  gap: 0.35rem;
   color: #f1f5f9;
 }
 
 .footer-brand-bolt {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   color: #ffb700;
 }
 
-.footer-brand-desc {
+.footer-copy {
+  font-size: 0.72rem;
   color: #475569;
-  font-size: 0.82rem;
-  line-height: 1.75;
-  max-width: 240px;
-}
-
-/* Link groups */
-.footer-link-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  min-width: 110px;
-}
-
-.footer-group-label {
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: #64748b;
-  margin-bottom: 0.3rem;
-}
-
-.footer-link-group a {
-  font-size: 0.875rem;
-  color: #94a3b8;
-  transition: color 0.2s ease;
-  text-decoration: none;
-}
-
-.footer-link-group a:hover {
-  color: #ffb700;
-}
-
-/* Bottom bar */
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 1.25rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.75rem;
-  color: #334155;
 }
 
 .footer-bottom-gh {
@@ -1028,23 +976,8 @@
   color: #ffb700;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-top {
-    flex-direction: column;
-    gap: 2.5rem;
-  }
-
-  .footer-top-brand {
-    flex: unset;
-  }
-
-  .footer-top-links {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 2rem;
+@media (max-width: 600px) {
+  .footer-copy {
+    display: none;
   }
 }
-
-
-/* legacy footer classes removed */

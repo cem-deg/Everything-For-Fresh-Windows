@@ -6,6 +6,7 @@ export default function Completion() {
     const navigate = useNavigate();
 
     const handleHome = () => {
+        window.scrollTo(0, 0);
         navigate('/');
     };
 
@@ -15,25 +16,23 @@ export default function Completion() {
             icon: 'bi-steam',
             url: 'https://store.steampowered.com/about/',
             description: 'The ultimate destination for playing, discussing, and creating games.',
-            iconStyle: { color: '#000000' }
         },
         {
             name: 'Spotify',
             icon: 'bi-spotify',
             url: 'https://www.spotify.com/download/windows/',
             description: 'Digital music service that gives you access to millions of songs.',
-            iconStyle: { color: '#1DB954' }
         },
         {
             name: 'Discord',
             icon: 'bi-discord',
             url: 'https://discord.com/download',
-            description: 'The easiest way to talk over voice, video, and text.',
-            iconStyle: { color: '#5865F2' }
+            description: 'Voice, video and text communication platform.',
         }
     ];
 
     const handleMoreApps = () => {
+        window.scrollTo(0, 0);
         navigate('/app-center');
     };
 
@@ -41,13 +40,21 @@ export default function Completion() {
         <div className="fundamentals-wrapper">
             <main className="fundamentals-container">
                 <div className="step-page">
+
+                    {/* ── Completion Header */}
                     <div className="step-header">
-                        <div className="step-badge" style={{ background: '#10b981', color: '#fff' }}>Completed</div>
-                        <h3 className="step-title" style={{ color: '#10b981' }}>
-                            <i className="bi bi-check-circle-fill" style={{ color: '#10b981' }}></i>
+                        <div className="step-badge" style={{ background: 'var(--primary)', color: '#111' }}>
+                            <i className="bi bi-check-lg" style={{ marginRight: '0.3rem' }}></i>
+                            Completed
+                        </div>
+                        <div className="step-progress-bar" style={{ marginTop: '0.5rem' }}>
+                            <div className="step-progress-fill" style={{ width: '100%' }}></div>
+                        </div>
+                        <h3 className="step-title" style={{ marginTop: '1rem' }}>
+                            <i className="bi bi-trophy-fill" style={{ color: 'var(--primary)' }}></i>
                             All Steps Completed!
                         </h3>
-                        <p className="step-subtitle">Your system is now optimized for better performance.</p>
+                        <p className="step-subtitle">Your system is now optimized for peak performance.</p>
                     </div>
 
                     <div className="step-content-card">
@@ -55,11 +62,10 @@ export default function Completion() {
                             <h4 className="section-subtitle">
                                 <i className="bi bi-stars"></i> Recommended Software
                             </h4>
-                            
-                            
+
                             <div className="essentials-grid">
                                 {essentialApps.map((app, index) => (
-                                    <a 
+                                    <a
                                         key={index}
                                         href={app.url}
                                         target="_blank"
@@ -67,7 +73,7 @@ export default function Completion() {
                                         className="essential-app-card"
                                     >
                                         <div className="app-icon-wrapper">
-                                            <i className={`bi ${app.icon}`} style={app.iconStyle}></i>
+                                            <i className={`bi ${app.icon}`}></i>
                                         </div>
                                         <div className="app-info">
                                             <h5>{app.name}</h5>
@@ -84,7 +90,7 @@ export default function Completion() {
                                 <i className="bi bi-house"></i>
                                 Back to Home
                             </button>
-                            <button className="start-btn" onClick={handleMoreApps} style={{margin: 0}}>
+                            <button className="start-btn" onClick={handleMoreApps} style={{ margin: 0 }}>
                                 <i className="bi bi-grid-3x3-gap-fill"></i>
                                 View More Apps
                             </button>

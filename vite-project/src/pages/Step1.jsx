@@ -9,10 +9,12 @@ export default function Step1() {
     const [selectedBrand, setSelectedBrand] = useState(null);
 
     const handleBack = () => {
+        window.scrollTo(0, 0);
         navigate('/fundamentals');
     };
 
     const handleNext = () => {
+        window.scrollTo(0, 0);
         if (selectedCPU === 'amd') {
             navigate('/step2-amd', { state: { selectedCPU, selectedGPU } });
         } else {
@@ -26,6 +28,9 @@ export default function Step1() {
                 <div className="step-page">
                     <div className="step-header">
                         <div className="step-badge">Step 1 of 8</div>
+                        <div className="step-progress-bar">
+                            <div className="step-progress-fill" style={{ width: '12.5%' }}></div>
+                        </div>
                         <h3 className="step-title">
                             <i className="bi bi-motherboard"></i>
                             BIOS Update

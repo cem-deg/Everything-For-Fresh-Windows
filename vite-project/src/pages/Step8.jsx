@@ -8,10 +8,12 @@ export default function Step8() {
     const { selectedCPU, selectedGPU } = location.state || {}; 
 
     const handleBack = () => {
+        window.scrollTo(0, 0);
         navigate('/step7', { state: { selectedCPU, selectedGPU } });
     };
 
     const handleFinish = () => {
+        window.scrollTo(0, 0);
         // Navigate back to the main menu or a completion page
         navigate('/completion');
     };
@@ -22,6 +24,9 @@ export default function Step8() {
                 <div className="step-page">
                     <div className="step-header">
                         <div className="step-badge">Step 8 of 8</div>
+                        <div className="step-progress-bar">
+                            <div className="step-progress-fill" style={{ width: '100%' }}></div>
+                        </div>
                         <h3 className="step-title">
                             <i className="bi bi-cpu"></i>
                             CPU Core & Display Settings
@@ -53,12 +58,12 @@ export default function Step8() {
                                 <span>Click <strong>OK</strong>, then <strong>Apply</strong> and <strong>OK</strong>. Restart your PC to apply changes.</span>
                             </div>
 
-                            <div className="confirmation-info" style={{ marginTop: '1rem', borderColor: '#10b981', background: '#ecfdf5' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#059669', marginBottom: '0.25rem', fontWeight: 'bold' }}>
+                            <div className="confirmation-info" style={{ marginTop: '1rem' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', marginBottom: '0.25rem', fontWeight: 'bold' }}>
                                     <i className="bi bi-rocket-takeoff-fill"></i>
                                     <span>Important Performance Boost</span>
                                 </div>
-                                <p className="info-text" style={{ color: '#047857' }}>
+                                <p className="info-text">
                                     Enabling all cores ensures Windows utilizes your CPU's full potential for faster boot times and better responsiveness.
                                 </p>
                             </div>

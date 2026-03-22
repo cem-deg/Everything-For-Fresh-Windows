@@ -8,6 +8,7 @@ export default function Step3AMD() {
     const { selectedCPU, selectedGPU } = location.state || {}; 
 
     const handleBack = () => {
+        window.scrollTo(0, 0);
         // Navigate back to the correct Step 2 page based on CPU selection
         if (selectedCPU === 'amd') {
             navigate('/step2-amd', { state: { selectedCPU, selectedGPU } });
@@ -17,6 +18,7 @@ export default function Step3AMD() {
     };
 
     const handleNext = () => {
+        window.scrollTo(0, 0);
         // Placeholder for Step 4
         navigate('/step4', { state: { selectedCPU, selectedGPU } });
     };
@@ -27,7 +29,10 @@ export default function Step3AMD() {
                 <div className="step-page">
                     <div className="step-header">
                         <div className="step-badge">Step 3 of 8</div>
-                            <h3 className="step-title">
+                        <div className="step-progress-bar">
+                            <div className="step-progress-fill" style={{ width: '37.5%' }}></div>
+                        </div>
+                        <h3 className="step-title">
                             <i className="bi bi-amd"></i>
                             AMD Graphics Drivers
                         </h3>

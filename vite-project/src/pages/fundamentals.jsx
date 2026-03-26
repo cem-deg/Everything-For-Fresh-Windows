@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate } from "react-router";
+import { useAppContext } from "../context/AppContext";
 import './Fundamentals.css';
 
 const cpuOptions = [
@@ -39,10 +40,8 @@ const gpuOptions = [
 
 export default function Fundamentals() {
     const navigate = useNavigate();
-    const location = useLocation();
-    const [selectedCPU, setSelectedCPU] = useState(location.state?.selectedCPU || null);
-    const [selectedGPU, setSelectedGPU] = useState(location.state?.selectedGPU || null);
-    const [step, setStep] = useState(location.state?.selectedCPU && location.state?.selectedGPU ? 2 : 1);
+    const { selectedCPU, setSelectedCPU, selectedGPU, setSelectedGPU } = useAppContext();
+    const [step, setStep] = useState(selectedCPU && selectedGPU ? 2 : 1);
 
     const handleSelectCPU = (cpu) => setSelectedCPU(cpu);
     const handleSelectGPU = (gpu) => setSelectedGPU(gpu);
@@ -54,7 +53,7 @@ export default function Fundamentals() {
     const handleBackToSelection = () => setStep(1);
 
     const handleConfirm = () => {
-        navigate('/step1', { state: { selectedCPU, selectedGPU } });
+        navigate('/step1');
     };
 
     const canProceed = selectedCPU && selectedGPU;

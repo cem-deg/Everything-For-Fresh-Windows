@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from "react-router";
-import '../Fundamentals.css';
+import '../../pages/Fundamentals.css';
 
 export default function ShortcutBios() {
     const [selectedBrand, setSelectedBrand] = useState(null);

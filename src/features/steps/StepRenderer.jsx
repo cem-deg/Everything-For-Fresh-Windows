@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router';
+"use client";
+import React, { useContext, useEffect, useState } from 'react';
+import { useRouter, useParams } from 'next/navigation';
 import { useAppContext } from '../../context/AppContext';
 import { getStepData } from '../../data/stepsData';
-import '../../pages/Fundamentals.css';
+import '../../views/Fundamentals.css';
+import PageWrapper from '../../components/layout/PageWrapper';
 
 export default function StepRenderer() {
     const { id } = useParams();
-    const navigate = useNavigate();
+    const router = useRouter();
     const { selectedCPU, selectedGPU } = useAppContext();
     const [selectedBrand, setSelectedBrand] = useState(null);
 
     // Redirect to fundamentals if context is missing
     useEffect(() => {
         if (!selectedCPU || !selectedGPU) {
-            navigate('/fundamentals');
+            router.push('/fundamentals');
         }
-    }, [selectedCPU, selectedGPU, navigate]);
+    }, [selectedCPU, selectedGPU, router]);
 
     if (!selectedCPU || !selectedGPU) return null;
 
@@ -28,25 +30,23 @@ export default function StepRenderer() {
     const handleBack = () => {
         window.scrollTo(0, 0);
         if (id === '1') {
-            navigate('/fundamentals');
+            router.push('/fundamentals');
         } else {
-            navigate(`/step/${parseInt(id) - 1}`);
+            router.push(`/step/${parseInt(id) - 1}`);
         }
     };
 
     const handleNext = () => {
         window.scrollTo(0, 0);
         if (currentStep.nextStep === 'completion') {
-            navigate('/completion');
+            router.push('/completion');
         } else {
-            navigate(`/step/${currentStep.nextStep}`);
+            router.push(`/step/${currentStep.nextStep}`);
         }
     };
 
     return (
-        <div className="fundamentals-wrapper">
-            <main className="fundamentals-container">
-                <div className="step-page">
+        <PageWrapper>
                     <div className="step-header">
                         <div className="step-badge">{currentStep.badge}</div>
                         <div className="step-progress-bar">
@@ -76,8 +76,6 @@ export default function StepRenderer() {
                             </button>
                         </div>
                     </div>
-                </div>
-            </main>
-        </div>
+        </PageWrapper>
     );
 }

@@ -1,14 +1,13 @@
+"use client";
 import React, { useState } from 'react';
-import { NavLink } from "react-router";
-import '../../pages/Fundamentals.css';
+import '../../views/Fundamentals.css';
+import PageWrapper from '../../components/layout/PageWrapper';
 
 export default function ShortcutBios() {
     const [selectedBrand, setSelectedBrand] = useState(null);
 
     return (
-        <div className="fundamentals-wrapper">
-            <main className="fundamentals-container">
-                <div className="step-page">
+        <PageWrapper>
                     <div className="step-header">
                         <div className="step-badge">Quick Access</div>
                         <h3 className="step-title">
@@ -127,8 +126,6 @@ export default function ShortcutBios() {
                             <span>Don't turn off your PC during BIOS update. This can brick your motherboard.</span>
                         </div>
                     </div>
-                </div>
-            </main>
-        </div>
+        </PageWrapper>
     );
 }

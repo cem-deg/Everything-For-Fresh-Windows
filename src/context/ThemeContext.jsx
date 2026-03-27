@@ -1,21 +1,30 @@
+"use client";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-    const [isDark, setIsDark] = useState(() => {
-        const saved = localStorage.getItem("effw-theme");
-        return saved ? saved === "dark" : true; // default dark
-    });
+    const [isDark, setIsDark] = useState(true);
 
     useEffect(() => {
-        const root = document.documentElement;
-        if (isDark) {
-            root.setAttribute("data-theme", "dark");
-        } else {
-            root.setAttribute("data-theme", "light");
+        if (typeof window !== "undefined") {
+            const saved = localStorage.getItem("effw-theme");
+            if (saved && saved === "light") {
+                setIsDark(false);
+            }
         }
-        localStorage.setItem("effw-theme", isDark ? "dark" : "light");
+    }, []);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const root = document.documentElement;
+            if (isDark) {
+                root.setAttribute("data-theme", "dark");
+            } else {
+                root.setAttribute("data-theme", "light");
+            }
+            localStorage.setItem("effw-theme", isDark ? "dark" : "light");
+        }
     }, [isDark]);
 
     const toggleTheme = () => setIsDark((prev) => !prev);

@@ -1,11 +1,10 @@
 import React from 'react';
-import '../../pages/Fundamentals.css';
+import '../../views/Fundamentals.css';
+import PageWrapper from '../../components/layout/PageWrapper';
 
 export default function ShortcutBoot() {
     return (
-        <div className="fundamentals-wrapper">
-            <main className="fundamentals-container">
-                <div className="step-page">
+        <PageWrapper>
                     <div className="step-header">
                         <div className="step-badge">Quick Access</div>
                         <h3 className="step-title">
@@ -50,8 +49,6 @@ export default function ShortcutBoot() {
                             </div>
                         </div>
                     </div>
-                </div>
-            </main>
-        </div>
+        </PageWrapper>
     );
 }

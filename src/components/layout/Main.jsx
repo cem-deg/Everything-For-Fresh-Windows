@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import Link from 'next/link';
 
 const logos = [
     { el: <i className="bi bi-windows" style={{ fontSize: '1.8rem' }}></i>, alt: 'Windows' },
@@ -34,11 +34,11 @@ export default function Main() {
                                 Your ultimate step-by-step guide to a fully optimized Windows system — faster speeds, lower latency, rock-solid stability.
                             </p>
                             <div className="hero-buttons">
-                                <Link to="/fundamentals" className="btn-hero-primary">
+                                <Link href="/fundamentals" className="btn-hero-primary">
                                     <i className="bi bi-rocket-takeoff"></i>
                                     Get Started
                                 </Link>
-                                <Link to="/app-center" className="btn-hero-secondary">
+                                <Link href="/app-center" className="btn-hero-secondary">
                                     <i className="bi bi-grid-fill"></i>
                                     View Apps
                                 </Link>
@@ -169,11 +169,11 @@ export default function Main() {
                             Join thousands of gamers and professionals using EFFW to squeeze every bit of power from their rigs.
                         </p>
                         <div className="cta-buttons">
-                            <Link to="/fundamentals" className="btn-cta-dark">
+                            <Link href="/fundamentals" className="btn-cta-dark">
                                 <i className="bi bi-rocket-takeoff"></i>
                                 Start Optimizing
                             </Link>
-                            <Link to="/app-center" className="btn-cta-outline">
+                            <Link href="/app-center" className="btn-cta-outline">
                                 <i className="bi bi-grid-fill"></i>
                                 App Center
                             </Link>

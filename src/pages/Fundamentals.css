@@ -231,8 +231,10 @@
 }
 
 .hw-btn-check i {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: var(--primary);
+    line-height: 0;
+    margin-top: 1px;
 }
 
 /* ===== SELECTION SUMMARY STRIP ===== */
@@ -1163,168 +1165,134 @@
     }
 }
 
-/* ===== APP CENTER — ALL IN ONE ===== */
+/* ===== APP CENTER — UNIFIED GRID ===== */
 
-.appcenter-all {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.appcenter-section-header {
+.category-jump-bar {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    padding-bottom: 0.75rem;
-    margin-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.category-jump-bar .jump-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.category-jump-bar .jump-link:hover {
+    background: rgba(255, 183, 0, 0.1);
+    color: var(--primary);
+}
+
+.category-jump-bar .jump-link i {
+    font-size: 0.95rem;
+}
+
+.unified-app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    gap: 0.5rem;
+    align-items: start;
+    width: 100%;
+}
+
+.unified-category-header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 0.8rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--primary);
+    padding-bottom: 0.25rem;
+    margin-top: 1rem;
+    border-bottom: 1px solid var(--border);
 }
 
-.appcenter-section-header i {
+.unified-category-header:first-child {
+    margin-top: 0;
+}
+
+.unified-category-header i {
     font-size: 1rem;
 }
 
-.appcenter-tab {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    padding: 0.55rem 1.1rem;
-    border-radius: 8px;
-    border: 1px solid var(--card-border);
-    background: var(--glass-bg);
-    color: var(--text-muted);
-    font-size: 0.82rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    letter-spacing: 0.02em;
-}
-
-.appcenter-tab:hover {
-    color: var(--text);
-    border-color: var(--primary);
-    background: var(--glass-hover-bg);
-}
-
-.appcenter-tab.active {
-    background: var(--primary);
-    color: #111;
-    border-color: var(--primary);
-    font-weight: 700;
-}
-
-.appcenter-tab i {
-    font-size: 0.9rem;
-}
-
-/* App list */
-.appcenter-list {
+.dense-app-tile {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
-}
-
-.appcenter-row {
-    display: flex;
     align-items: center;
-    gap: 1.1rem;
-    padding: 1rem 1.25rem;
+    justify-content: flex-start;
+    gap: 0.4rem;
+    padding: 0.5rem 0.25rem;
     border-radius: 12px;
     background: var(--glass-bg);
     border: 1px solid var(--card-border);
     text-decoration: none;
     color: var(--text);
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
+    text-align: center;
+    height: 100%;
 }
 
-.appcenter-row:hover {
+.dense-app-tile:hover {
     border-color: var(--primary);
     background: var(--glass-hover-bg);
-    transform: translateX(4px);
-    box-shadow: -3px 0 0 0 var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(255, 183, 0, 0.15);
 }
 
-.appcenter-row-logo {
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background: var(--bg);
-    border: 1px solid var(--border);
+.dense-app-logo {
+    width: 38px;
+    height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
+    background: var(--bg);
+    border: 1px solid var(--border);
     overflow: hidden;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
 }
 
-.appcenter-row-logo img {
-    width: 28px;
-    height: 28px;
+.dense-app-tile:hover .dense-app-logo {
+    background: rgba(255, 183, 0, 0.1);
+    border-color: rgba(255, 183, 0, 0.3);
+}
+
+.dense-app-logo img {
+    width: 24px;
+    height: 24px;
     object-fit: contain;
 }
 
-.appcenter-row-info {
-    flex: 1;
-    min-width: 0;
-}
-
-.appcenter-row-name {
-    font-size: 0.88rem;
-    font-weight: 700;
+.dense-app-name {
+    font-size: 0.65rem;
+    font-weight: 600;
     color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.2rem;
-}
-
-.appcenter-badge {
-    font-size: 0.6rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding: 0.15rem 0.5rem;
-    border-radius: 4px;
-    background: var(--primary);
-    color: #111;
-}
-
-.appcenter-row-desc {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    line-height: 1.4;
-    white-space: nowrap;
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.appcenter-row-action {
-    flex-shrink: 0;
-    margin-left: auto;
-}
-
-.appcenter-dl-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    border: 1px solid var(--card-border);
-    padding: 0.4rem 0.85rem;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-}
-
-.appcenter-row:hover .appcenter-dl-btn {
-    color: #111;
-    background: var(--primary);
-    border-color: var(--primary);
 }

@@ -53,7 +53,7 @@ export default function Fundamentals() {
     const handleBackToSelection = () => setStep(1);
 
     const handleConfirm = () => {
-        navigate('/step1');
+        navigate('/step/1');
     };
 
     const canProceed = selectedCPU && selectedGPU;
